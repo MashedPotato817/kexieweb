@@ -1,0 +1,4 @@
+interface:
+  display_name: "科协 Git 协作流程"
+  short_description: "让 AI 按 MAA 规范完成分支、提交、PR 和合并。"
+  default_prompt: "Use $kexie-git-workflow to prepare this website change for a reviewable pull request."

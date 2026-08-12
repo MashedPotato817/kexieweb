@@ -30,6 +30,13 @@
 
 它们共用 `.agents/skills/` 下的规范，而不是各自保存一份容易失效的文案。不同工具对“skill”的自动发现机制不完全相同，因此提示词会明确让它读取该文件；这比复制多份规则更可靠。
 
+涉及分支、提交或 PR 时，再让 AI 读取 `.agents/skills/kexie-git-workflow/SKILL.md`。例如：
+
+```text
+请阅读 AGENTS.md 和 .agents/skills/kexie-git-workflow/SKILL.md，
+为当前改动创建规范分支、检查提交信息，并准备一个 PR；不要合并 main。
+```
+
 ## 提交 PR 前
 
 1. 确认没有把私人电话、身份证号、未公开的群二维码或学生个人信息放进公开网站。
