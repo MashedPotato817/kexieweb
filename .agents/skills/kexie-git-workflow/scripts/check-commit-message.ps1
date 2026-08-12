@@ -12,4 +12,9 @@ if ($CommitMessage -notmatch $pattern) {
   exit 1
 }
 
+if ($CommitMessage -notmatch '\p{IsCJKUnifiedIdeographs}') {
+  Write-Error 'Commit message subject must include Chinese text.'
+  exit 1
+}
+
 Write-Host 'Commit message format passed.'

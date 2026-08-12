@@ -1,0 +1,30 @@
+name: Validate Git conventions
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, edited]
+
+permissions:
+  contents: read
+
+jobs:
+  conventions:
+    name: validate-git-conventions
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      - name: Validate branch, title, and commits
+        shell: pwsh
+        env:
+          BRANCH_NAME: ${{ github.head_ref }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          ./scripts/validate-git-conventions.ps1 `
+            -BranchName $env:BRANCH_NAME `
+            -PullRequestTitle $env:PR_TITLE `
+            -BaseSha $env:BASE_SHA
+
