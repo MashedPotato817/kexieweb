@@ -1,0 +1,37 @@
+# 校园科学技术协会网站
+
+这是一个可直接部署到 GitHub Pages 的静态网站。它面向全校学生和科协成员，用于介绍组织、发布招新信息，并集中放置活动资料。
+
+## 本地预览
+
+直接双击 `index.html` 即可查看；若浏览器限制本地资源，也可在 VS Code 中使用 Live Server 预览。
+
+## 日常更新
+
+- 修改网站文案：编辑 `index.html` 中对应的区块。
+- 添加活动资料：将文件放到 `assets/downloads/`，再在“资源下载”区域添加一张资源卡片和链接。
+- 更换校徽：用 `assets/images/logo.svg` 替换现有图标，并按需要在 `index.html` 修改组织名称。
+- 修改样式：编辑 `styles.css`。
+
+## 多人协作约定
+
+1. 不直接向 `main` 推送；每项改动从 `main` 新建分支。
+2. 分支使用英文短横线和类型前缀，例如 `feat/activity-resources`、`fix/contact-link`、`docs/contributing`。
+3. 提交信息采用 MAA 风格：`<类型>(<可选作用域>): <中文主体>`，例如 `feat(resources): 添加机器人工作坊课件`。
+4. 提交 Pull Request，描述改了什么、附上页面截图；由项目负责人完成关键流程验证后，以普通 merge 合并。
+5. 不对 `main` 强制推送或改写历史；工作分支若需 force-push，先征得负责人确认。
+6. 只有合并到 `main` 的内容会自动发布。
+
+### GitHub 仓库设置
+
+首次推送到 GitHub 后，在 **Settings → Branches** 为 `main` 新建分支保护规则：要求通过 Pull Request 合并，并将 **Validate static site** 设为必需检查。仓库只有你一位维护者时，可以不要求额外审批；你仍保留最终 merge 权限。
+
+## GitHub Pages 发布
+
+1. 将仓库推送到 GitHub。
+2. 在仓库 **Settings → Pages → Build and deployment** 选择 **GitHub Actions**。
+3. 合并到 `main` 后，工作流会自动发布。网站地址通常为：
+   `https://<你的 GitHub 用户名>.github.io/<仓库名>/`
+4. 发布后，将这个地址生成二维码并用于海报、签到台或活动资料。二维码本质上是网站链接，手机扫码即可打开。
+
+首次发布后，请在 `index.html` 中把“联系邮箱、QQ群、办公地点”等占位信息换成真实信息。

@@ -1,0 +1,4 @@
+interface:
+  display_name: "科协网站内容贡献"
+  short_description: "让 AI 规范化更新校园科协静态网站内容并准备可审阅的 PR。"
+  default_prompt: "Use $kexie-content-contribution to add a verified activity resource to this website."
