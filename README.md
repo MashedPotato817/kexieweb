@@ -22,9 +22,16 @@
 5. 不对 `main` 强制推送或改写历史；工作分支若需 force-push，先征得负责人确认。
 6. 只有合并到 `main` 的内容会自动发布。
 
-### GitHub 仓库设置
+### GitHub 规则设置
 
-首次推送到 GitHub 后，在 **Settings → Branches** 为 `main` 新建分支保护规则：要求通过 Pull Request 合并，并将 **Validate static site** 设为必需检查。仓库只有你一位维护者时，可以不要求额外审批；你仍保留最终 merge 权限。
+本仓库已为 `main` 启用 **Settings → Rules → Rulesets → Protect main**。它会：
+
+- 要求通过 Pull Request 合并；
+- 要求 `validate` 与 `validate-git-conventions` 两项检查通过；
+- 仅允许普通 merge，保留分支提交历史；
+- 禁止删除或 force-push `main`。
+
+当前只有一名维护者，因此规则不要求他人审批；负责人仍负责在检查通过后确认并 merge。若要调整规则，先通过 PR 更新仓库内的检查逻辑，再由负责人修改对应 Ruleset。
 
 ## GitHub Pages 发布
 
