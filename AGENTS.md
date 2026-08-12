@@ -12,6 +12,7 @@
 - 合并使用普通 merge，保留分支提交历史；禁止改写 `main` 历史。对远端进行 force-push 前，必须先取得负责人确认。
 - 合并到 `main` 后推送远端，GitHub Pages 将自动发布。
 - 涉及 Git 或 GitHub 的任务，读取 `.agents/skills/kexie-git-workflow/SKILL.md`；提交前使用其中的脚本检查提交信息。
+- 不得绕过 GitHub 的 `main` 分支规则或必需检查；规则需要变更时，通过 PR 修改检查逻辑并由负责人确认后更新 Ruleset。
 
 ## 开始前
 
