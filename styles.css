@@ -11,6 +11,10 @@ a { color:inherit; text-decoration:none; }
 .brand-mark { display:block; width:34px; height:34px; border:1px dashed var(--blue); border-radius:10px; background:rgba(29,99,232,.04); }
 nav { display:flex; gap:1.5rem; color:var(--muted); font-size:.94rem; }
 nav a:hover, footer a:hover, .text-link:hover { color:var(--blue); }
+nav a.active { color:var(--blue); font-weight:700; }
+.section.js-reveal { opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+.section.js-reveal.revealed { opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce) { .section.js-reveal { opacity:1; transform:none; transition:none; } }
 .menu-button { display:none; border:0; background:none; color:var(--ink); font:inherit; }
 .hero, .section, footer { max-width:1180px; margin:auto; padding-left:24px; padding-right:24px; }
 .hero { min-height:580px; display:grid; grid-template-columns:1.1fr .9fr; align-items:center; gap:2rem; background:var(--grad); position:relative; }
