@@ -13,7 +13,10 @@
 - 分支使用英文短横线命名并带类型前缀，例如 `feat/activity-resources`、`fix/contact-link`、`docs/contributing`、`chore/site-check`。
 - 工作分支可随时提交，用于保存可用、未完成或实验性改动；提交信息采用 MAA 风格：`<类型>(<可选作用域>): <中文主体>`。
 - 类型仅使用小写英文：`feat`、`fix`、`docs`、`chore`、`style`、`refactor`、`test`、`perf`。作用域使用英文，例如 `feat(resources): 添加讲座课件`。
+- 未定稿或仍在试验中的分支必须使用 Draft Pull Request；只有负责人确认内容定稿后，才能标记为 Ready for review 或创建可合并的正式 PR。
 - 通过 Pull Request 合并。只有负责人实际验证关键流程、确认暂定稳定且没有明显问题后，才能合并到 `main`。
+- 任何 Agent 不得自行合并 PR。只有负责人明确说出“合并 PR #编号”或“merge PR #编号”后，Agent 才能执行合并；“继续执行”“检查通过”或“准备合并”不等同于合并授权。
+- 提交信息、PR 描述和 merge 信息应清楚说明改动目的与结果。涉及多个文件、行为变化或重要流程时，正文使用 `-` 分点列出改动、资料来源和验证结果，不用含糊的一句话概括。
 - 合并使用普通 merge，保留分支提交历史；禁止改写 `main` 历史。对远端进行 force-push 前，必须先取得负责人确认。
 - 合并到 `main` 后推送远端，GitHub Pages 将自动发布。
 - 涉及 Git 或 GitHub 的任务，读取 `.agents/skills/kexie-git-workflow/SKILL.md`；提交前使用其中的脚本检查提交信息。
