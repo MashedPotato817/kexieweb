@@ -26,7 +26,9 @@ foreach ($match in $matches) {
 }
 
 # 外链出处核对：index.html 中的 https:// 外链 URL 必须作为字符串出现在事实登记处。
-if (Test-Path -LiteralPath $factsPath) {
+if (-not (Test-Path -LiteralPath $factsPath)) {
+  $errors.Add("事实登记处缺失：docs/kexie-mes/README.md")
+} else {
   $facts = Get-Content -Raw -Encoding UTF8 $factsPath
   foreach ($match in [regex]::Matches($html, 'https?://[^"''<> ]+')) {
     $url = $match.Value.TrimEnd(')', '>')
