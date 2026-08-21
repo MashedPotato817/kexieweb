@@ -42,3 +42,19 @@
 1. 确认没有把私人电话、身份证号、未公开的群二维码或学生个人信息放进公开网站。
 2. 运行验证：Windows 用 `powershell -ExecutionPolicy Bypass -File scripts/validate-site.ps1`；macOS/Linux 用 `pwsh -File scripts/validate-site.ps1`。
 3. 提交 PR，不直接改 `main`；PR 模板会提示需要补充的信息。
+
+## AI Agent 完成清单
+
+如果你是用 AI 工具协助开发，提交前请逐项确认以下内容：
+
+1. **分支与工作区**：当前在 `<type>/<english-kebab-case>` 分支，不在 `main`；工作区无未提交或未跟踪的意外文件。
+2. **校验脚本**：已运行 `powershell -ExecutionPolicy Bypass -File scripts/verify-pr-ready.ps1` 与 `scripts/validate-site.ps1`，通过后才允许创建或合并 PR。
+3. **提交信息**：`<type>(<scope>): <中文主体>`，正文必要时分点说明改动目的、文件和验证结果。
+4. **PR 描述三要素**：写明改动摘要、资料来源或待确认事项、验证结果；不要只写一句笼统说明。
+5. **不编造信息**：未提供的信息保持“待公布/待发布”，不得猜测；私人信息不放进公开内容。
+6. **事实先登记**：页面上新增或修改的事实性内容（日期、群号、联系方式、职位、数据、外部链接）先写入 `docs/kexie-mes/README.md` 并在 PR 描述注明来源；外部链接必须在登记处有出处，否则 `validate-site.ps1` 会失败。
+7. **不越界改文件**：未经明确授权，不改部署工作流（`.github/workflows`）、全局文档（`README.md`、`CONTRIBUTING.md`、`CLAUDE.md`、`AGENTS.md`、skills）或 `docs/` 内容；确需修改时在 PR 描述写“放行文件：<路径>”。
+8. **合并授权**：只有负责人明确说“合并 PR #编号”或“merge PR #编号”才能合并；“继续执行”“检查通过”“准备合并”都不算授权。
+9. **未定稿用 Draft PR**：仍需继续开发的分支创建 Draft PR，负责人确认定稿后才转为 Ready for review。
+
+涉及分支、提交或 PR 时，先读取 `.agents/skills/kexie-git-workflow/SKILL.md`。
