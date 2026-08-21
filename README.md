@@ -27,7 +27,8 @@
 本仓库已为 `main` 启用 **Settings → Rules → Rulesets → Protect main**。它会：
 
 - 要求通过 Pull Request 合并；
-- 要求 `validate` 与 `validate-git-conventions` 两项检查通过；
+- 要求 `validate`、`validate-git-conventions`、`check-pr-boundaries`、`check-pr-description` 四项检查通过；
+- 合并前要求分支与 `main` 保持最新；
 - 仅允许普通 merge，保留分支提交历史；
 - 禁止删除或 force-push `main`。
 
