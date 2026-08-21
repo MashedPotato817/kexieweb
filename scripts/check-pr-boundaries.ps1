@@ -34,7 +34,9 @@ foreach ($line in ($PrBody -split "`r?`n")) {
   }
 }
 
-$changed = git diff --name-only "$BaseSha..HEAD" 2>$null
+$mergeBase = (git merge-base $BaseSha HEAD 2>$null | Select-Object -First 1)
+if (-not $mergeBase) { throw "无法确定 $BaseSha 与 HEAD 的 merge-base。" }
+$changed = git diff --name-only "$mergeBase..HEAD" 2>$null
 $violations = @()
 foreach ($file in ($changed | Sort-Object -Unique)) {
   if (-not $file) { continue }
