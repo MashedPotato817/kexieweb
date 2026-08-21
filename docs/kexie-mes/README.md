@@ -52,9 +52,9 @@ QQ群名称：【科协小屋🏠】
 
 QQ群群号：797706466
 
-QQ群链接：https://qm.qq.com/q/SHFC4tLM8S
+QQ群链接：https://qm.qq.com/q/8py73bnrZ6
 
-QQ群二维码：![QQ群二维码](./assets/qrs/QQgroup-qr.jpg)
+QQ群二维码：![QQ群二维码](./assets/qrs/QQgroup-qr.png)
 
 电自院科协活动宣传群：
 
@@ -64,7 +64,7 @@ QQ群群号：660593320
 
 QQ群链接：https://qm.qq.com/q/hEafZMdJ4s
 
-QQ群二维码：![电自院科协活动宣传群二维码](./assets/qrs/QQgroup2-qr.jpg)
+QQ群二维码：![电自院科协活动宣传群二维码](./assets/qrs/QQgroup2-qr.png)
 
 ### 11. 校徽或协会 Logo 文件（如有）
 
