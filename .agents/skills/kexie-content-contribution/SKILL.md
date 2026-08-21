@@ -23,6 +23,8 @@ description: Add or revise verified Chinese content for this school science-and-
 - 外部链接使用完整 `https://` 地址；文件链接使用相对路径，例如 `assets/downloads/活动课件.pdf`。
 - 图片必须提供具体的 `alt` 文本；不能以“图片”“海报”作为替代文本。
 - 不在公开页面写个人手机号、私人账号、未公开群二维码、学生个人信息或凭据。
+- 事实先登记：页面上新增或修改的事实性内容（日期、群号、联系方式、职位、数据、外部链接）必须先写入 `docs/kexie-mes/README.md` 登记，并在 PR 描述中注明来源；链接必须能在该登记处找到出处，否则 `scripts/validate-site.ps1` 会校验失败。
+- 外部链接出处核对由 `scripts/validate-site.ps1` 自动执行：`index.html` 中的 `https://` 外链 URL 必须以字符串形式出现在 `docs/kexie-mes/README.md`。
 
 ## 何时停止并询问
 
