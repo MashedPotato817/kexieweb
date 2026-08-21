@@ -28,3 +28,34 @@ jobs:
             -PullRequestTitle $env:PR_TITLE `
             -BaseSha $env:BASE_SHA
 
+  boundaries:
+    name: check-pr-boundaries
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      - name: Check out-of-bounds files
+        shell: pwsh
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          ./scripts/check-pr-boundaries.ps1 `
+            -BaseSha $env:BASE_SHA `
+            -PrBody $env:PR_BODY
+
+  description:
+    name: check-pr-description
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate PR description
+        shell: pwsh
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          ./scripts/check-pr-description.ps1 `
+            -PrBody $env:PR_BODY
+

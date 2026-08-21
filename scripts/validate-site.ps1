@@ -1,8 +1,9 @@
-$ErrorActionPreference = 'Stop'
+﻿$ErrorActionPreference = 'Stop'
 
 $root = Split-Path -Parent $PSScriptRoot
 $indexPath = Join-Path $root 'index.html'
 $scriptPath = Join-Path $root 'script.js'
+$factsPath = Join-Path $root 'docs/kexie-mes/README.md'
 $html = Get-Content -Raw -Encoding UTF8 $indexPath
 $errors = [System.Collections.Generic.List[string]]::new()
 
@@ -21,6 +22,17 @@ foreach ($match in $matches) {
   $resolved = Join-Path $root ($pathOnly -replace '/', [IO.Path]::DirectorySeparatorChar)
   if (-not (Test-Path -LiteralPath $resolved)) {
     $errors.Add("Referenced local file does not exist: $target")
+  }
+}
+
+# 外链出处核对：index.html 中的 https:// 外链 URL 必须作为字符串出现在事实登记处。
+if (Test-Path -LiteralPath $factsPath) {
+  $facts = Get-Content -Raw -Encoding UTF8 $factsPath
+  foreach ($match in [regex]::Matches($html, 'https?://[^"''<> ]+')) {
+    $url = $match.Value.TrimEnd(')', '>')
+    if (-not $facts.Contains($url)) {
+      $errors.Add("外部链接未在事实登记处登记出处：$url")
+    }
   }
 }
 

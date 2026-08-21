@@ -27,17 +27,10 @@ $allowedTypes = 'feat|fix|docs|chore|style|refactor|test|perf'
 $branchPattern = '^(?:' + $allowedTypes + ')/[a-z0-9]+(?:-[a-z0-9]+)*$'
 $commitPattern = '^(?:' + $allowedTypes + ')(?:\([a-z0-9]+(?:-[a-z0-9]+)*\))?:\s\S.*$'
 
-# 约定边界外的文件：未获明确授权不得改动
-$protectedPaths = @(
-  '^\.github/workflows/',
-  '^\.github/pull_request_template\.md$',
-  '^README\.md$',
-  '^CONTRIBUTING\.md$',
-  '^CLAUDE\.md$',
-  '^AGENTS\.md$',
-  '^\.agents/skills/',
-  '^docs/'
-)
+# 约定边界外的文件：未获明确授权不得改动。清单来自共享文件 protected-paths.txt。
+$protectedPaths = Get-Content -Path (Join-Path $PSScriptRoot 'protected-paths.txt') -Encoding UTF8 |
+  Where-Object { $_ -and -not $_.TrimStart().StartsWith('#') } |
+  ForEach-Object { $_.Trim() }
 
 $errors = [System.Collections.Generic.List[string]]::new()
 

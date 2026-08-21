@@ -1,0 +1,10 @@
+# 约定边界外文件清单（正则，每行一条）
+# 未获负责人明确授权不得改动。本地 verify-pr-ready.ps1 与 CI 均读取本文件。
+^\.github/workflows/
+^\.github/pull_request_template\.md$
+^README\.md$
+^CONTRIBUTING\.md$
+^CLAUDE\.md$
+^AGENTS\.md$
+^\.agents/skills/
+^docs/
