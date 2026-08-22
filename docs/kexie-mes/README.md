@@ -48,6 +48,8 @@
 
 协会网站地址：https://mashedpotato817.github.io/kexieweb/
 
+网站分享配图（og:image，暂用轨道图形，Logo 定稿后替换）：https://mashedpotato817.github.io/kexieweb/assets/images/og-cover.png
+
 电自院科协成员内部群：
 
 QQ群名称：【科协小屋🏠】
