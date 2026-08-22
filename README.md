@@ -10,7 +10,7 @@
 
 - 修改网站文案：编辑 `index.html` 中对应的区块。
 - 添加活动资料：将文件放到 `assets/downloads/`，再在“资源下载”区域添加一张资源卡片和链接。
-- 更换校徽：用 `assets/images/logo.svg` 替换现有图标，并按需要在 `index.html` 修改组织名称。
+- 更换站点图标：当前使用抽象 brand-mark 占位；协会 Logo 征集结束后，将选中作品放入 `assets/images/` 并在 `index.html` 更新引用（征集说明见 `assets/logos/README.md`）。
 - 修改样式：编辑 `styles.css`。
 
 ## 多人协作约定
@@ -43,4 +43,4 @@
 4. 发布范围仅站点文件（`index.html`、`styles.css`、`script.js`、`404.html` 与 `assets/`），仓库中的协作文档与 `docs/` 不会随 Pages 发布。
 5. 发布后，将这个地址生成二维码并用于海报、签到台或活动资料。二维码本质上是网站链接，手机扫码即可打开。
 
-首次发布后，请在 `index.html` 中把“联系邮箱、QQ群、办公地点”等占位信息换成真实信息。
+首次发布的占位信息已替换为已确认内容；后续内容更新按 `CONTRIBUTING.md` 的流程进行。
