@@ -40,6 +40,7 @@
 2. 在仓库 **Settings → Pages → Build and deployment** 选择 **GitHub Actions**。
 3. 合并到 `main` 后，工作流会自动发布。网站地址通常为：
    `https://<你的 GitHub 用户名>.github.io/<仓库名>/`
-4. 发布后，将这个地址生成二维码并用于海报、签到台或活动资料。二维码本质上是网站链接，手机扫码即可打开。
+4. 发布范围仅站点文件（`index.html`、`styles.css`、`script.js`、`404.html` 与 `assets/`），仓库中的协作文档与 `docs/` 不会随 Pages 发布。
+5. 发布后，将这个地址生成二维码并用于海报、签到台或活动资料。二维码本质上是网站链接，手机扫码即可打开。
 
 首次发布后，请在 `index.html` 中把“联系邮箱、QQ群、办公地点”等占位信息换成真实信息。
