@@ -46,6 +46,8 @@
 
 ### 10. 官方公开联系方式（邮箱、公众号、QQ群等）
 
+协会网站地址：https://mashedpotato817.github.io/kexieweb/
+
 电自院科协成员内部群：
 
 QQ群名称：【科协小屋🏠】
