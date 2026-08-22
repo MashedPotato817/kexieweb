@@ -6,7 +6,6 @@
   --blue: #1d63e8;
   --cyan: #49d5ed;
   --orange: #ffb04a;
-  --white: #fff;
   --accent: #7a5cff;
   --radius: 16px;
   --shadow: 0 14px 30px rgba(16, 35, 63, 0.08);
@@ -67,7 +66,7 @@ nav {
   color: var(--muted);
   font-size: 0.94rem;
 }
-nav a:hover, footer a:hover, .text-link:hover { color: var(--blue); }
+nav a:hover, footer a:hover { color: var(--blue); }
 nav a.active { color: var(--blue); font-weight: 700; }
 
 .section.js-reveal {
@@ -266,8 +265,8 @@ h2 {
   color: #fff;
   background: var(--ink);
   max-width: none;
-  padding-left: max(24px, calc((100vw - 1132px) / 2));
-  padding-right: max(24px, calc((100vw - 1132px) / 2));
+  padding-left: max(24px, calc(50% - 566px));
+  padding-right: max(24px, calc(50% - 566px));
 }
 .join .eyebrow { color: var(--cyan); }
 .join-card {
@@ -300,9 +299,6 @@ h2 {
   border-radius: 999px;
   font-size: 0.8rem;
 }
-.text-link { font-weight: 800; transition: color 0.18s ease; }
-.text-link:hover { color: var(--cyan); }
-
 .split-heading {
   display: flex;
   justify-content: space-between;
