@@ -40,7 +40,7 @@
 ## 提交 PR 前
 
 1. 确认没有把私人电话、身份证号、未公开的群二维码或学生个人信息放进公开网站。
-2. 运行验证：Windows 用 `powershell -ExecutionPolicy Bypass -File scripts/validate-site.ps1`；macOS/Linux 用 `pwsh -File scripts/validate-site.ps1`。
+2. 运行验证：Windows 用 `powershell -ExecutionPolicy Bypass -File scripts/validate-site.ps1`；macOS/Linux 用 `pwsh -File scripts/validate-site.ps1`。合并前 PR 还会被 CI 的边界检查（`check-pr-boundaries`）与描述检查（`check-pr-description`）校验。
 3. 提交 PR，不直接改 `main`；PR 模板会提示需要补充的信息。
 
 ## AI Agent 完成清单

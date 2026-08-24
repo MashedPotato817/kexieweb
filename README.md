@@ -18,7 +18,7 @@
 1. 不直接向 `main` 推送；每项改动从 `main` 新建分支。
 2. 分支使用英文短横线和类型前缀，例如 `feat/activity-resources`、`fix/contact-link`、`docs/contributing`。
 3. 提交信息采用 MAA 风格：`<类型>(<可选作用域>): <中文主体>`，例如 `feat(resources): 添加机器人工作坊课件`。
-4. 提交 Pull Request，描述改了什么、附上页面截图；由项目负责人完成关键流程验证后，以普通 merge 合并。
+4. 提交 Pull Request，描述改动内容、信息来源与验证结果；由项目负责人完成关键流程验证后，以普通 merge 合并。
 5. 不对 `main` 强制推送或改写历史；工作分支若需 force-push，先征得负责人确认。
 6. 只有合并到 `main` 的内容会自动发布。
 
