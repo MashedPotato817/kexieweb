@@ -5,6 +5,8 @@ description: Manage this school science-and-technology association website with 
 
 # 科协 Git 协作流程
 
+> **给人看的摘要**：这个技能定义本仓库的分支、提交、PR 与合并流程。核心规则：所有改动从 `main` 新建分支；提交信息用 `<类型>(<作用域>): <中文主体>`；未定稿用 Draft PR；只有负责人明确说「合并 PR #编号」才能合并。手动操作时用 GitHub 网页建分支和 PR 即可，不需要本地命令行。坑：合并前核对 PR 编号和 head SHA，不要在 PowerShell 里用 `\n` 拼多行信息。
+
 执行涉及 Git 或 GitHub 的任务时，先阅读根目录 `AGENTS.md`。此 skill 将规则转为可执行检查，避免直接提交到 `main`、非规范提交和重复部署。
 
 ## 提交前

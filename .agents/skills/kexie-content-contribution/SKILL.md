@@ -5,6 +5,8 @@ description: Add or revise verified Chinese content for this school science-and-
 
 # 科协网站内容贡献
 
+> **给人看的摘要**：这个技能负责把已确认的协会信息（招新文案、活动资料、联系方式等）规范地写进网站。手动做时通常只改两个文件——`index.html`（页面内容）和 `docs/kexie-mes/README.md`（事实登记处）；改动的事实必须先登记，否则校验会失败。坑：不要编造任何日期、链接、职位；没有真实资料就保留「待发布」占位。
+
 将用户给出的真实信息转为一项小而可审阅的网站更新。阅读 `references/content-schema.md` 后再编辑。
 
 ## 工作流
