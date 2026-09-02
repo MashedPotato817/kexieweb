@@ -2,4 +2,5 @@
 Thumbs.db
 .vscode/
 .zcode/
-
+tmp/*
+!tmp/.gitkeep
