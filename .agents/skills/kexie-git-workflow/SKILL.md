@@ -43,6 +43,19 @@ description: Manage this school science-and-technology association website with 
 5. 合并前核对 PR 编号、base/head 分支、必需检查和 head SHA；使用 `--match-head-commit <head-sha>`，确保合并的是已审阅版本。
 6. 使用普通 merge，编辑 merge commit 标题为规范格式，并用正文分点记录合并内容，避免默认的 `Merge pull request #...` 标题。多行正文必须使用真实换行，不要在 PowerShell 中使用 `\n` 或 `` `n `` 代替换行。
 
+   6a. merge 消息遵循标准模板：标题为 `<type>(<scope>): <中文主体>`，与正文之间空一行，正文用 `-` 分点列出改动，结尾必须含「验证：...均通过。」一行。示例：
+
+   ```text
+   chore(workflow): 新增merge消息校验
+
+   - 新增 scripts/check-merge-message.ps1 校验脚本。
+   - 扩展 scripts/verify-pr-ready.ps1 合并前自检。
+
+   验证：validate、validate-git-conventions、check-pr-boundaries、check-pr-description 均通过。
+   ```
+
+   **校对要求**：执行 `gh pr merge` 前，先用 `scripts/check-merge-message.ps1` 校验拟填写的 `--subject`（标题）与 `--body-file`（正文），符合标准模板再合并；合并不符合标准的消息，须先修正再合并。
+
    **编码要求（重要）**：PowerShell 标准输入/管道默认按系统 ANSI（GBK）编码，中文会变乱码（`?`）。不要用 `$mergeBody | gh pr merge --body-file -` 直接传中文正文。正确做法是先用无 BOM UTF-8 写入文件，再 `--body-file`：`gh pr merge` 用 `--subject` 传标题（命令行参数不受影响），中文正文走文件。合并后用字节级检查复核（统计 `0x3F` 数量），不要依赖控制台显示。
 
    Windows 示例：
@@ -62,4 +75,5 @@ gh pr merge 11 --merge --subject "chore(workflow): 更新协作规则" --body-fi
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts/validate-site.ps1
 powershell -ExecutionPolicy Bypass -File .agents/skills/kexie-git-workflow/scripts/check-commit-message.ps1 'feat(about): 补充协会宗旨'
+powershell -ExecutionPolicy Bypass -File scripts/check-merge-message.ps1 -Subject 'feat(about): 补充协会宗旨' -BodyFile "$env:TEMP\merge-body.txt"
 ```

@@ -12,6 +12,7 @@
 ## 本地校验脚本（可选）
 
 - `verify-pr-ready.ps1`：本地 PR 前置自检（分支、提交信息、工作区、越界文件、head SHA）。有 AI 工具时可跑；纯人维护可跳过（CI 会兜底）。
+- `check-merge-message.ps1`：校验拟填写的 merge commit 消息是否符合标准模板（标题 `<type>(<scope>): <中文主体>`、正文 `-` 分点、结尾「验证：...均通过。」、无 `0x3F` 乱码）。供 `gh pr merge` 前调用；verify-pr-ready 合并前自检也会调用它。
 
 ## 工具脚本
 
@@ -25,3 +26,4 @@
 
 - 网站校验：`powershell -ExecutionPolicy Bypass -File scripts/validate-site.ps1`
 - 提交规范检查：`powershell -ExecutionPolicy Bypass -File .agents/skills/kexie-git-workflow/scripts/check-commit-message.ps1 '<提交信息>'`
+- merge 消息检查：`powershell -ExecutionPolicy Bypass -File scripts/check-merge-message.ps1 -Subject '<标题>' -BodyFile '<正文文件>'`

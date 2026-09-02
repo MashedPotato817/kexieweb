@@ -19,6 +19,16 @@
 - 提交信息、PR 描述和 merge 信息应清楚说明改动目的与结果。涉及多个文件、行为变化或重要流程时，正文使用 `-` 分点列出改动、资料来源和验证结果，不用含糊的一句话概括。
 - 多行提交正文、PR 描述或 merge 正文必须传入真实换行；PowerShell 中不得把 `\n` 或 `` `n `` 当作换行拼入正文。优先使用 `--body-file` 或标准输入，并在提交或合并后检查实际显示效果。
 - 中文正文必须保证 UTF-8 编码：PowerShell 标准输入/管道默认按系统 ANSI（GBK）编码，会把中文变成乱码（如 `?`）。改用 `--body-file` 时，先用 `UTF8Encoding($false)`（无 BOM）写入正文文件再 `--body-file 文件`；传给 `--subject`/标题则走命令行参数、不受影响。合并后用字节级检查复核（统计 `0x3F` 数量），不要依赖控制台显示。
+- merge 消息遵循标准模板：标题为 `<type>(<scope>): <中文主体>`，与正文之间空一行，正文用 `-` 分点列出改动，结尾必须含「验证：...均通过。」一行。示例：
+  ```
+  chore(workflow): 新增merge消息校验
+
+  - 新增 scripts/check-merge-message.ps1 校验脚本。
+  - 扩展 scripts/verify-pr-ready.ps1 合并前自检。
+
+  验证：validate、validate-git-conventions、check-pr-boundaries、check-pr-description 均通过。
+  ```
+- 执行 `gh pr merge` 前，先用 `scripts/check-merge-message.ps1` 校验拟填写的 `--subject`（标题）与 `--body-file`（正文），符合标准模板再合并；合并不符合标准的消息，须先修正再合并。
 - 合并前必须核对 PR 编号、目标分支、来源分支、必需检查状态和 head SHA；执行 `gh pr merge` 时使用 `--match-head-commit` 锁定已审阅的提交。命令报错、无输出或被中止后，先用 `gh pr view` 核查实际状态，不得直接重试合并。
 - 合并使用普通 merge，保留分支提交历史；禁止改写 `main` 历史。对远端进行 force-push 前，必须先取得负责人确认。
 - 合并到 `main` 后推送远端，GitHub Pages 将自动发布。

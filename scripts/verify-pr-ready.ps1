@@ -18,7 +18,13 @@
 
 param(
   [Parameter(Mandatory = $false)]
-  [string[]]$AllowProtected = @()
+  [string[]]$AllowProtected = @(),
+
+  [Parameter(Mandatory = $false)]
+  [string]$MergeSubject,
+
+  [Parameter(Mandatory = $false)]
+  [string]$MergeBodyFile
 )
 
 $ErrorActionPreference = 'Stop'
@@ -100,6 +106,17 @@ if ($branch -and $headSha -and $branch -ne 'main') {
         $errors.Add("PR #$($p.number) 的远端 head SHA 与本地不一致，需先推送同步。")
       }
     }
+  }
+}
+
+# 6. 合并消息校验：提供 -MergeSubject 时才执行，供合并前校验拟填写的 merge 消息。
+if ($MergeSubject) {
+  $CheckMergeScript = Join-Path $PSScriptRoot 'check-merge-message.ps1'
+  $checkArgs = @{ Subject = $MergeSubject }
+  if ($MergeBodyFile) { $checkArgs['BodyFile'] = $MergeBodyFile }
+  & $CheckMergeScript @checkArgs
+  if ($LASTEXITCODE -ne 0) {
+    $errors.Add("merge 消息不符合标准模板（请运行 scripts/check-merge-message.ps1 查看详情）。")
   }
 }
 
