@@ -34,16 +34,20 @@ description: Manage this school science-and-technology association website with 
 - PR 描述和 merge 信息同样使用清晰的分点摘要；涉及多个文件、行为变化或重要流程时不得只写一句笼统说明。
 - 禁止使用自动生成的标题（如 `Create static.yml`）直接提交到 `main`。将自动生成文件视为普通改动：移到工作分支、审核、测试、再提交。
 
-## PR 与合并
+## PR 创建与审核
 
 1. 未定稿、仍需继续开发或等待负责人审阅的分支，使用 Draft PR：`gh pr create --draft`。Draft PR 不得转为可合并状态，除非负责人确认内容已定稿。
 2. 内容定稿后，推送工作分支并创建范围单一的正式 PR；PR 标题沿用规范提交格式，描述使用分点摘要。
-3. 等待必需检查通过。负责人确认关键流程已验证、暂定稳定且明确授权合并后才可合并。
-4. 任何 Agent 不得根据“执行计划”“检查通过”或“准备合并”等表述推断合并授权；只有负责人明确说“合并 PR #编号”或“merge PR #编号”时，才能执行合并。
-5. 合并前核对 PR 编号、base/head 分支、必需检查和 head SHA；使用 `--match-head-commit <head-sha>`，确保合并的是已审阅版本。
-6. 使用普通 merge，编辑 merge commit 标题为规范格式，并用正文分点记录合并内容，避免默认的 `Merge pull request #...` 标题。多行正文必须使用真实换行，不要在 PowerShell 中使用 `\n` 或 `` `n `` 代替换行。
+3. 等待必需检查通过（validate、validate-git-conventions、check-pr-boundaries、check-pr-description）。Draft PR 在负责人确认定稿前不转正式。
 
-   6a. merge 消息遵循标准模板：标题为 `<type>(<scope>): <中文主体>`，与正文之间空一行，正文用 `-` 分点列出改动，结尾必须含「验证：...均通过。」一行。示例：
+## 合并到 main
+
+1. 任何 Agent 不得根据“执行计划”“检查通过”或“准备合并”等表述推断合并授权；只有负责人明确说“合并 PR #编号”或“merge PR #编号”时，才能执行合并。
+2. 合并前核对 PR 编号、base/head 分支、必需检查和 head SHA；使用 `--match-head-commit <head-sha>`，确保合并的是已审阅版本。
+3. **前置校验（必须）**：执行 `gh pr merge` 前，**必须先**运行 `scripts/check-merge-message.ps1` 校验拟填写的 `--subject`（标题）与 `--body-file`（正文），符合标准模板**才可**合并；不符合标准模板的 merge 消息，须先修正再合并。
+4. 使用普通 merge，编辑 merge commit 标题为规范格式，并用正文分点记录合并内容，避免默认的 `Merge pull request #...` 标题。多行正文必须使用真实换行，不要在 PowerShell 中使用 `\n` 或 `` `n `` 代替换行。
+
+   **标准模板**：merge 消息标题为 `<type>(<scope>): <中文主体>`，与正文之间空一行，正文用 `-` 分点列出改动，结尾必须含「验证：...均通过。」一行。示例：
 
    ```text
    chore(workflow): 新增merge消息校验
@@ -53,8 +57,6 @@ description: Manage this school science-and-technology association website with 
 
    验证：validate、validate-git-conventions、check-pr-boundaries、check-pr-description 均通过。
    ```
-
-   **校对要求**：执行 `gh pr merge` 前，先用 `scripts/check-merge-message.ps1` 校验拟填写的 `--subject`（标题）与 `--body-file`（正文），符合标准模板再合并；合并不符合标准的消息，须先修正再合并。
 
    **编码要求（重要）**：PowerShell 标准输入/管道默认按系统 ANSI（GBK）编码，中文会变乱码（`?`）。不要用 `$mergeBody | gh pr merge --body-file -` 直接传中文正文。正确做法是先用无 BOM UTF-8 写入文件，再 `--body-file`：`gh pr merge` 用 `--subject` 传标题（命令行参数不受影响），中文正文走文件。合并后用字节级检查复核（统计 `0x3F` 数量），不要依赖控制台显示。
 
@@ -68,7 +70,7 @@ $utf8 = New-Object System.Text.UTF8Encoding($false)
 gh pr merge 11 --merge --subject "chore(workflow): 更新协作规则" --body-file "$env:TEMP\merge-body.txt" --match-head-commit '<head-sha>'
 ```
 
-7. `gh pr merge` 报错、无输出或被中止后，先运行 `gh pr view <number> --json state,mergeCommit` 核查是否已经合并，不得直接重试。合并后更新本地 `main`、确认部署状态并清理分支。禁止改写或 force-push `main`。
+5. `gh pr merge` 报错、无输出或被中止后，先运行 `gh pr view <number> --json state,mergeCommit` 核查是否已经合并，不得直接重试。合并后更新本地 `main`、确认部署状态并清理分支。禁止改写或 force-push `main`。
 
 ## Windows 命令
 

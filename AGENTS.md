@@ -10,30 +10,18 @@
 ## Git 工作流
 
 - 所有开发和内容更新均从 `main` 新建工作分支；不得直接向 `main` 提交。
-- 分支使用英文短横线命名并带类型前缀，例如 `feat/activity-resources`、`fix/contact-link`、`docs/contributing`、`chore/site-check`。
-- 工作分支可随时提交，用于保存可用、未完成或实验性改动；提交信息采用 MAA 风格：`<类型>(<可选作用域>): <中文主体>`。
-- 类型仅使用小写英文：`feat`、`fix`、`docs`、`chore`、`style`、`refactor`、`test`、`perf`。作用域使用英文，例如 `feat(resources): 添加讲座课件`。
+- 分支命名、提交信息、PR 与合并的**完整规范与可执行细则**，见 `.agents/skills/kexie-git-workflow/SKILL.md`。本文件只列重点原则，**必须**以该 skill 的流程与脚本校验为准。
 - 未定稿或仍在试验中的分支必须使用 Draft Pull Request；只有负责人确认内容定稿后，才能标记为 Ready for review 或创建可合并的正式 PR。
 - 通过 Pull Request 合并。只有负责人实际验证关键流程、确认暂定稳定且没有明显问题后，才能合并到 `main`。
 - 任何 Agent 不得自行合并 PR。只有负责人明确说出“合并 PR #编号”或“merge PR #编号”后，Agent 才能执行合并；“继续执行”“检查通过”或“准备合并”不等同于合并授权。
-- 提交信息、PR 描述和 merge 信息应清楚说明改动目的与结果。涉及多个文件、行为变化或重要流程时，正文使用 `-` 分点列出改动、资料来源和验证结果，不用含糊的一句话概括。
-- 多行提交正文、PR 描述或 merge 正文必须传入真实换行；PowerShell 中不得把 `\n` 或 `` `n `` 当作换行拼入正文。优先使用 `--body-file` 或标准输入，并在提交或合并后检查实际显示效果。
-- 中文正文必须保证 UTF-8 编码：PowerShell 标准输入/管道默认按系统 ANSI（GBK）编码，会把中文变成乱码（如 `?`）。改用 `--body-file` 时，先用 `UTF8Encoding($false)`（无 BOM）写入正文文件再 `--body-file 文件`；传给 `--subject`/标题则走命令行参数、不受影响。合并后用字节级检查复核（统计 `0x3F` 数量），不要依赖控制台显示。
-- merge 消息遵循标准模板：标题为 `<type>(<scope>): <中文主体>`，与正文之间空一行，正文用 `-` 分点列出改动，结尾必须含「验证：...均通过。」一行。示例：
-  ```
-  chore(workflow): 新增merge消息校验
-
-  - 新增 scripts/check-merge-message.ps1 校验脚本。
-  - 扩展 scripts/verify-pr-ready.ps1 合并前自检。
-
-  验证：validate、validate-git-conventions、check-pr-boundaries、check-pr-description 均通过。
-  ```
-- 执行 `gh pr merge` 前，先用 `scripts/check-merge-message.ps1` 校验拟填写的 `--subject`（标题）与 `--body-file`（正文），符合标准模板再合并；合并不符合标准的消息，须先修正再合并。
-- 合并前必须核对 PR 编号、目标分支、来源分支、必需检查状态和 head SHA；执行 `gh pr merge` 时使用 `--match-head-commit` 锁定已审阅的提交。命令报错、无输出或被中止后，先用 `gh pr view` 核查实际状态，不得直接重试合并。
+- 提交信息、PR 描述和 merge 信息应清楚说明改动目的与结果，正文使用 `-` 分点列出改动、资料来源和验证结果，不用含糊的一句话概括。
+- merge 消息遵循标准模板：标题为 `<type>(<scope>): <中文主体>`，正文用 `-` 分点，结尾必须含「验证：...均通过。」一行。模板与编码细则见 skill。
+- 执行 `gh pr merge` 前，先按 skill 校验拟填写的标题与正文（`scripts/check-merge-message.ps1`），符合标准模板再合并。
 - 合并使用普通 merge，保留分支提交历史；禁止改写 `main` 历史。对远端进行 force-push 前，必须先取得负责人确认。
 - 合并到 `main` 后推送远端，GitHub Pages 将自动发布。
-- 涉及 Git 或 GitHub 的任务，读取 `.agents/skills/kexie-git-workflow/SKILL.md`；提交前使用其中的脚本检查提交信息。
 - 不得绕过 GitHub 的 `main` 分支规则或必需检查；规则需要变更时，通过 PR 修改检查逻辑并由负责人确认后更新 Ruleset。
+
+> **必须读取**：凡涉及分支创建、提交、PR 创建/审核、合并到 `main` 等 Git 或 GitHub 操作，**必须先读** `.agents/skills/kexie-git-workflow/SKILL.md`，并按其流程与脚本严格校验执行。
 
 ## 开始前
 
