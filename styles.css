@@ -56,9 +56,8 @@ a { color: inherit; text-decoration: none; }
   display: block;
   width: 34px;
   height: 34px;
-  border: 1px dashed var(--blue);
   border-radius: 10px;
-  background: rgba(29, 99, 232, 0.04);
+  object-fit: contain;
 }
 nav {
   display: flex;
@@ -375,6 +374,21 @@ h2 {
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
 }
+.qr-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+.qr-item {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+.qr-item figcaption { color: var(--muted); font-size: 0.9rem; }
 
 footer {
   display: flex;
