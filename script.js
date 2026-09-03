@@ -1,6 +1,11 @@
 const menuButton = document.querySelector('.menu-button');
 const nav = document.querySelector('#nav');
 
+const ua = navigator.userAgent || '';
+if (/MQQBrowser|QQ\//i.test(ua)) {
+  document.documentElement.classList.add('lite');
+}
+
 menuButton?.addEventListener('click', () => {
   const open = nav.classList.toggle('open');
   menuButton.setAttribute('aria-expanded', String(open));

@@ -76,6 +76,10 @@ nav a.active { color: var(--blue); font-weight: 700; }
 @media (prefers-reduced-motion: reduce) {
   .section.js-reveal { opacity: 1; transform: none; transition: none; }
 }
+.lite .section.js-reveal { opacity: 1; transform: none; transition: none; }
+.lite .star { animation: none; }
+.lite .hero-orbit { background: linear-gradient(180deg, #d9e9fc, #fff); }
+.lite .orbit-core { box-shadow: none; }
 
 .menu-button {
   display: none;
