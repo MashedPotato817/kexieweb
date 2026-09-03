@@ -48,7 +48,21 @@
 
 协会网站地址：https://mashedpotato817.github.io/kexieweb/
 
-网站分享配图（og:image，暂用轨道图形，Logo 定稿后替换）：https://mashedpotato817.github.io/kexieweb/assets/images/og-cover.png
+网站分享配图（og:image，已用正式 Logo 重新生成）：https://mashedpotato817.github.io/kexieweb/assets/images/og-cover.png
+
+2026科协招新群：
+
+QQ群名称：【2026科协招新群】
+
+QQ群链接：https://qm.qq.com/q/XnoFCh1Di4
+
+QQ群二维码：![2026科协招新群二维码](../../assets/qrs/QQgroup3-recuit-qr.png)
+
+科协网站维护人员：
+
+姓名：张航宁
+
+QQ：1836977647（本人已确认公开）
 
 电自院科协成员内部群：
 
