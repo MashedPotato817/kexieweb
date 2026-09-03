@@ -26,7 +26,7 @@ jobs:
       - name: Assemble site files
         run: |
           mkdir -p _site
-          cp index.html styles.css script.js 404.html favicon.svg _site/
+          cp index.html styles.css script.js 404.html favicon.png _site/
           cp -r assets _site/assets
       - name: Configure Pages
         uses: actions/configure-pages@v5

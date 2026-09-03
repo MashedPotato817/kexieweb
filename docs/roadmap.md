@@ -14,18 +14,21 @@
 
 ### 等 Logo 征选定稿（征集截止 2026-08-30 19:00）
 
-- [ ] 中选 Logo 放入 `assets/images/`（从 `assets/logos/` 投稿暂存区由负责人复制提交）。
-- [ ] 替换 `favicon.svg`。注意：favicon 在仓库根目录，**必须同步更新
+- [x] 中选 Logo 放入 `assets/images/`（从 `assets/logos/` 投稿暂存区由负责人复制提交）。
+- [x] 替换 favicon：由 Logo 生成 `favicon.png`（64×64）与 `apple-touch-icon.png`（180×180），
+  `index.html` 改引 `favicon.png`；`deploy-pages.yml` 组装清单同步调整（`favicon.svg` 保留
+  仓库但取消部署路由）。注意：favicon 在仓库根目录，**必须同步更新
   `deploy-pages.yml` 组装清单**（曾因遗漏导致线上 404，PR #23 的教训）。
-- [ ] 导航栏 `brand-mark` 抽象占位换为正式 Logo。
-- [ ] 用正式 Logo 重新生成 og:image，替换本轮的临时版。
+- [x] 导航栏 `brand-mark` 抽象占位换为正式 Logo（`assets/images/logo.png`）。
+- [x] 用正式 Logo 重新生成 og:image，替换本轮的临时版。
 
 ### 等真实信息到位
 
-- [ ] **招新信息发布**：确认时间、地点、报名链接后，替换「加入我们」区的
-  「招新信息待发布」占位；报名链接须先登记到 `docs/kexie-mes/README.md`（外链核对强制）。
+- [ ] **招新信息发布**：招新群（2026科协招新群）链接与二维码已加入「联系」区块；
+  招新时间、地点确认后替换「加入我们」区的「招新信息待发布」占位；
+  报名链接须先登记到 `docs/kexie-mes/README.md`（外链核对强制）。
 - [ ] **报名 CTA 按钮**（与招新信息同一 PR）：Hero 区高亮「立即报名」入口，跳转真实
-  报名表单。无真实链接前不做——不得编造链接。
+  报名表单。无真实链接前不做——不得编造链接。当前「联系」区块已提供招新群入口作为过渡。
 - [ ] **首场活动资料上线**：文件放入 `assets/downloads/`，将资源区三张占位卡
   （首场活动资料 / 项目展示模板 / 新成员入门指南）逐个替换为真实下载卡片。
 
