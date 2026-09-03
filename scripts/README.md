@@ -17,6 +17,7 @@
 ## 工具脚本
 
 - `make-qr.py`：生成纯净二维码 PNG（深蓝填充、白底、高纠错）。依赖 `pip install qrcode pillow`。
+- `compress-images.py`：压缩图片到适合网页显示的体积（等比缩放 + 重新编码，默认输出 JPEG，不覆盖原图）。用于大图瘦身，减少页面加载体积。依赖 `pip install pillow`。示例：`python scripts/compress-images.py assets/photos/科普知识竞赛.png --max-width 460`。
 
 ## 配置文件
 
