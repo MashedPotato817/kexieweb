@@ -88,4 +88,10 @@ QQ群二维码：![电自院科协活动宣传群二维码](../../assets/qrs/QQg
 
 ### 11. 校徽或协会 Logo 文件（如有）
 
-待筛选，详见 `assets/logos/README.md`。
+已在用的 logo（`assets/images/`）：
+
+- `logo-nnu.jpg`：南京师范大学校徽。
+- `logo-dianzi.jpg`：南京师范大学电气与自动化工程学院院徽。
+- `logo-kexie.png` / `logo-kexie-sm.png`：协会 Logo（大图 / 导航小图）。
+
+征文投稿暂存见 `assets/logos/README.md`。
