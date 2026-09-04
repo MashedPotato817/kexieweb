@@ -18,6 +18,8 @@
 
 - `make-qr.py`：生成纯净二维码 PNG（深蓝填充、白底、高纠错）。依赖 `pip install qrcode pillow`。
 - `compress-images.py`：压缩图片到适合网页显示的体积（等比缩放 + 重新编码，默认输出 JPEG，不覆盖原图）。用于大图瘦身，减少页面加载体积。依赖 `pip install pillow`。示例：`python scripts/compress-images.py assets/photos/科普知识竞赛.png --max-width 460`。
+- `make-qr-pdf.py`：生成「科协招新二维码」A4 横向 PDF（顶部并排三 logo（南师大/电自院/科协），校名加字间距，三个二维码并排并标注）。输出到 `assets/downloads/科协招新二维码.pdf`。依赖 `pip install reportlab pillow`。
+- `make-og-cover.py`：重建 og:image 分享配图（1200×630，深蓝渐变背景 + 新版圆角 Logo + 站名/标语/英文）。输出到 `assets/images/og-cover.png`。依赖 `pip install pillow`。
 
 ## 配置文件
 
