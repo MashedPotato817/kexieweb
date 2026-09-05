@@ -10,7 +10,7 @@
 
 - 修改网站文案：编辑 `index.html` 中对应的区块。
 - 添加活动资料：将文件放到 `assets/downloads/`，再在“资源下载”区域添加一张资源卡片和链接。
-- 更换站点图标：当前使用抽象 brand-mark 占位；协会 Logo 征集结束后，将选中作品放入 `assets/images/` 并在 `index.html` 更新引用（征集说明见 `assets/logos/README.md`）。
+- 维护站点图标与 Logo：当前已使用正式协会 Logo；如需更新站点 Logo，请将经确认的素材放入 `assets/images/`，并同步更新 `index.html` 的引用（素材说明见 `assets/logos/README.md`）。
 - 修改样式：编辑 `styles.css`。
 
 ## 更多入口
